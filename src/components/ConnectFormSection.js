@@ -1,54 +1,63 @@
-import React, { useState } from 'react';
-import styles from './ConnectFormSection.module.css';
+import React, { useState } from "react";
+import styles from "./ConnectFormSection.module.css";
 import { getDatabase, ref, push } from "firebase/database";
 import { app } from "../firebase"; // Adjust path as needed
+import { useNavigate } from "react-router-dom";
 
 const ConnectFormSection = () => {
   const db = getDatabase(app);
-  
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    businessType: '',
-    investment: '',
-    city: '',
-    state: ''
+    name: "",
+    email: "",
+    phone: "",
+    businessType: "",
+    investment: "",
+    city: "",
+    state: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Required field validation
     if (!formData.name || !formData.email || !formData.phone) {
-      alert('Please fill in Name, Email, and Phone fields');
+      alert("Please fill in Name, Email, and Phone fields");
       return;
     }
 
     try {
-      const contactsRef = ref(db, 'contacts');
-      await push(contactsRef, formData);
-      
+      // Push data to Firebase
+      const applicationsRef = ref(db, "applications");
+
+      // Add timestamp
+      const formDataWithTimestamp = {
+        ...formData,
+        timestamp: new Date().toISOString(), // or Date.now() for Unix time
+      };
+
+      await push(applicationsRef, formDataWithTimestamp);
       // Reset form
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        businessType: '',
-        investment: '',
-        city: '',
-        state: ''
+        name: "",
+        email: "",
+        phone: "",
+        businessType: "",
+        investment: "",
+        city: "",
+        state: "",
       });
-      
-      alert('Form submitted successfully! Our team will contact you soon.');
+
+      navigate("/thankyou");
     } catch (error) {
-      console.error('Error saving data:', error);
-      alert('Failed to submit form. Please try again.');
+      console.error("Error saving data:", error);
+      alert("Failed to submit form. Please try again.");
     }
   };
 
@@ -66,35 +75,35 @@ const ConnectFormSection = () => {
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit}>
-          <input 
-            type="text" 
+          <input
+            type="text"
             name="name"
-            placeholder="Name" 
+            placeholder="Name"
             value={formData.name}
             onChange={handleChange}
             required
           />
-          
+
           <div className={styles.row}>
-            <input 
-              type="email" 
+            <input
+              type="email"
               name="email"
-              placeholder="Email" 
+              placeholder="Email"
               value={formData.email}
               onChange={handleChange}
               required
             />
-            <input 
-              type="tel" 
+            <input
+              type="tel"
               name="phone"
-              placeholder="Phone" 
+              placeholder="Phone"
               value={formData.phone}
               onChange={handleChange}
               required
             />
           </div>
-          
-          <select 
+
+          <select
             name="businessType"
             value={formData.businessType}
             onChange={handleChange}
@@ -103,8 +112,8 @@ const ConnectFormSection = () => {
             <option value="Retail">Retail</option>
             <option value="Wholesale">Wholesale</option>
           </select>
-          
-          <select 
+
+          <select
             name="investment"
             value={formData.investment}
             onChange={handleChange}
@@ -113,24 +122,24 @@ const ConnectFormSection = () => {
             <option value="Below ₹5L">Below ₹5L</option>
             <option value="Above ₹5L">Above ₹5L</option>
           </select>
-          
+
           <div className={styles.row}>
-            <input 
-              type="text" 
+            <input
+              type="text"
               name="city"
-              placeholder="City" 
+              placeholder="City"
               value={formData.city}
               onChange={handleChange}
             />
-            <input 
-              type="text" 
+            <input
+              type="text"
               name="state"
-              placeholder="State" 
+              placeholder="State"
               value={formData.state}
               onChange={handleChange}
             />
           </div>
-          
+
           <button type="submit">Apply Now</button>
         </form>
       </div>

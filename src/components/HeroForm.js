@@ -1,59 +1,68 @@
-import React, { useState } from 'react';
-import styles from './HeroForm.module.css';
+import React, { useState } from "react";
+import styles from "./HeroForm.module.css";
 import { getDatabase, ref, push } from "firebase/database";
 import { app } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const HeroForm = () => {
+  const navigate = useNavigate()
   // Initialize database
   const db = getDatabase(app);
-  
+
   // Form state
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    businessType: '',
-    investment: '',
-    city: '',
-    state: ''
+    name: "",
+    email: "",
+    phone: "",
+    businessType: "",
+    investment: "",
+    city: "",
+    state: "",
   });
-  
+
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.phone) {
-      alert('Please fill in required fields: Name, Email, and Phone');
+      alert("Please fill in required fields: Name, Email, and Phone");
       return;
     }
 
     try {
       // Push data to Firebase
-      const applicationsRef = ref(db, 'applications');
-      await push(applicationsRef, formData);
-      
+      const applicationsRef = ref(db, "applications");
+
+      // Add timestamp
+      const formDataWithTimestamp = {
+        ...formData,
+        timestamp: new Date().toISOString(), // or Date.now() for Unix time
+      };
+
+      await push(applicationsRef, formDataWithTimestamp);
+
       // Reset form and show success
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        businessType: '',
-        investment: '',
-        city: '',
-        state: ''
+        name: "",
+        email: "",
+        phone: "",
+        businessType: "",
+        investment: "",
+        city: "",
+        state: "",
       });
-      
-      alert('Application submitted successfully!');
+
+      navigate("/thankyou")
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Failed to submit application. Please try again.');
+      console.error("Error submitting form:", error);
+      alert("Failed to submit application. Please try again.");
     }
   };
 
@@ -64,38 +73,38 @@ const HeroForm = () => {
           <h2 className={styles.heading}>Get in touch!</h2>
           <p className={styles.subheading}>Apply Now</p>
 
-          <input 
-            type="text" 
+          <input
+            type="text"
             name="name"
-            placeholder="Name" 
-            className={styles.input} 
+            placeholder="Name"
+            className={styles.input}
             value={formData.name}
             onChange={handleChange}
             required
           />
-          
+
           <div className={styles.row}>
-            <input 
-              type="email" 
+            <input
+              type="email"
               name="email"
-              placeholder="Email" 
-              className={styles.input} 
+              placeholder="Email"
+              className={styles.input}
               value={formData.email}
               onChange={handleChange}
               required
             />
-            <input 
-              type="tel" 
+            <input
+              type="tel"
               name="phone"
-              placeholder="Phone" 
-              className={styles.input} 
+              placeholder="Phone"
+              className={styles.input}
               value={formData.phone}
               onChange={handleChange}
               required
             />
           </div>
 
-          <select 
+          <select
             name="businessType"
             className={styles.input}
             value={formData.businessType}
@@ -106,7 +115,7 @@ const HeroForm = () => {
             <option value="Distributor">Distributor</option>
           </select>
 
-          <select 
+          <select
             name="investment"
             className={styles.input}
             value={formData.investment}
@@ -119,19 +128,19 @@ const HeroForm = () => {
           </select>
 
           <div className={styles.row}>
-            <input 
-              type="text" 
+            <input
+              type="text"
               name="city"
-              placeholder="City" 
-              className={styles.input} 
+              placeholder="City"
+              className={styles.input}
               value={formData.city}
               onChange={handleChange}
             />
-            <input 
-              type="text" 
+            <input
+              type="text"
               name="state"
-              placeholder="State" 
-              className={styles.input} 
+              placeholder="State"
+              className={styles.input}
               value={formData.state}
               onChange={handleChange}
             />
