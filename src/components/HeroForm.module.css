@@ -1,0 +1,74 @@
+.heroContainer {
+  background-image: url("https://opusbirlafranchise.com/media/upload/calista-premium-home-paint-aditya-birla.webp");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 500px;
+}
+
+.overlay {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.heading {
+  color: #028bd5;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.subheading {
+  margin: -8px 0 10px;
+  font-weight: 500;
+  color: #333;
+}
+
+.input {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+}
+
+.button {
+  background-color: #29a3ec;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    justify-content: center;
+    padding: 40px 15px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}

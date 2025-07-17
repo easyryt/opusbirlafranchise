@@ -1,0 +1,49 @@
+.wrapper {
+  padding: 40px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.textBox {
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.videoWrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 18px;
+  }
+
+  .subtext {
+    font-size: 13px;
+  }
+}

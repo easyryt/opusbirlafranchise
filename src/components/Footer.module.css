@@ -1,0 +1,87 @@
+.footer {
+  background-color: #654b8b;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px 20px 10px;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.column {
+  flex: 1 1 200px;
+  margin: 10px;
+  min-width: 250px;
+  color: #fff;
+}
+
+.column h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+  color: #fff;
+}
+
+.column ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.column p {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.logos {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+  align-items: center;
+}
+
+.logos img {
+  height: 40px;
+  background: #fff;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.email {
+  color: #ddd;
+  font-style: italic;
+}
+
+.copyRight {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 30px;
+  padding-bottom: 20px;
+  color: #ccc;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .column {
+    margin-bottom: 20px;
+  }
+}
