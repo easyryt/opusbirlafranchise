@@ -61,7 +61,7 @@ function App() {
       <PaintingMadeEasy />
       <ConnectFormSection />
       <FAQSection />
-      <BirlaOpusPaintOverview />
+      {/* <BirlaOpusPaintOverview /> */}
       <Footer />
 
       {showScrollTop && (

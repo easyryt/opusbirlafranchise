@@ -3,11 +3,12 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  padding: 60px 20px;
+  padding: 60px 60px 60px 20px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   min-height: 500px;
+  box-sizing: border-box;
 }
 
 .overlay {
@@ -16,6 +17,8 @@
   border-radius: 10px;
   max-width: 400px;
   width: 100%;
+  margin-right: 40px;
+  box-sizing: border-box;
 }
 
 .form {
@@ -38,17 +41,22 @@
 }
 
 .input {
+  width: 100%;
   padding: 10px 12px;
-  font-size: 14px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  flex: 1;
+  box-sizing: border-box;
 }
 
 .row {
   display: flex;
-  gap: 10px;
   flex-direction: row;
+  gap: 10px;
+}
+
+.row .input {
+  width: 100%;
 }
 
 .button {
@@ -66,6 +74,10 @@
   .heroContainer {
     justify-content: center;
     padding: 40px 15px;
+  }
+
+  .overlay {
+    margin-right: 0;
   }
 
   .row {

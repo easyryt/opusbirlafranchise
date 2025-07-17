@@ -32,7 +32,6 @@ const Navbar = () => {
         <a href="#apply" onClick={closeMenu}>APPLY NOW</a>
         <a href="#franchise" onClick={closeMenu}>FRANCHISE OPPORTUNITY</a>
         <a href="#contact" onClick={closeMenu}>CONTACT</a>
-        <a href="#login" onClick={closeMenu}>BUSINESS LOGIN</a>
       </nav>
     </header>
   );
