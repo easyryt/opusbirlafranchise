@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import { useNavigate } from "react-router-dom";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp"; // Import WhatsApp icon
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -62,14 +63,14 @@ const Footer = () => {
             Centurion, Worli, Mumbai – 400030, Maharashtra, India
           </p>
           <p className={styles.email}>business@opusbirlafranchise.com</p>
-          <p>
-            WhatsApp:{" "}
-            <a 
-              href="https://wa.me/918653421800" 
+          <p className={styles.whatsapp}>
+            <a
+              href="https://wa.me/918653421800"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.whatsappLink}
             >
+              <WhatsAppIcon className={styles.whatsappIcon} />
               +91 8653421800
             </a>
           </p>

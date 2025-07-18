@@ -5,6 +5,28 @@
   padding: 40px 20px 10px;
   position: relative;
 }
+.whatsapp {
+  display: flex;
+  align-items: center;
+}
+
+.whatsappLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.whatsappLink:hover {
+  color: #25D366; /* WhatsApp brand color on hover */
+}
+
+.whatsappIcon {
+  color: #25D366; /* WhatsApp brand color */
+  font-size: 1.5rem !important; /* Override MUI default size */
+}
 
 .container {
   display: flex;
