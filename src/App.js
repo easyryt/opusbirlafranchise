@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import TopBar from "./components/TopBar";
 import Navbar from "./components/Navbar";
 import HeroForm from "./components/HeroForm";
 import PopularColorSlider from "./components/PopularColorSlider";
@@ -10,36 +9,23 @@ import ColorfulStoreSection from "./components/ColorfulStoreSection";
 import PaintingMadeEasy from "./components/PaintingMadeEasy";
 import ConnectFormSection from "./components/ConnectFormSection";
 import FAQSection from "./components/FAQSection";
-import BirlaOpusPaintOverview from "./components/BirlaOpusPaintOverview";
 import Footer from "./components/Footer";
 import styles from "./App.module.css";
 
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [hideTopBar, setHideTopBar] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentY = window.scrollY;
-
-      // show scroll to top after 100vh
-      const showAfter = window.innerHeight;
-      setShowScrollTop(currentY > showAfter);
-
-      // hide topbar when scrolling down
-      if (currentY > lastScrollY && currentY > 100) {
-        setHideTopBar(true);
-      } else {
-        setHideTopBar(false);
-      }
-
-      setLastScrollY(currentY);
+      const scrollY = window.scrollY;
+      setShowScrollTop(scrollY > window.innerHeight);
+      setIsScrolled(scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -47,8 +33,7 @@ function App() {
 
   return (
     <div className={styles.container}>
-      {!hideTopBar && <TopBar />}
-      <div className={styles.stickyNavbar}>
+      <div className={`${styles.stickyNavbar} ${isScrolled ? styles.scrolled : ''}`}>
         <Navbar />
       </div>
 
@@ -61,7 +46,6 @@ function App() {
       <PaintingMadeEasy />
       <ConnectFormSection />
       <FAQSection />
-      {/* <BirlaOpusPaintOverview /> */}
       <Footer />
 
       {showScrollTop && (

@@ -1,7 +1,15 @@
 import React from "react";
 import styles from "./Footer.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    // Scroll to top after navigation
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer className={styles.footer}>
@@ -38,8 +46,12 @@ const Footer = () => {
         <div className={styles.column}>
           <h3>Policy</h3>
           <ul>
-            <li>- Privacy Policy</li>
-            <li>- Terms & Conditions</li>
+            <li onClick={() => handleNavigation("/privacy-policy")}>
+              - Privacy Policy
+            </li>
+            <li onClick={() => handleNavigation("/terms-and-conditions")}>
+              - Terms & Conditions
+            </li>
           </ul>
         </div>
 
@@ -50,7 +62,17 @@ const Footer = () => {
             Centurion, Worli, Mumbai – 400030, Maharashtra, India
           </p>
           <p className={styles.email}>business@opusbirlafranchise.com</p>
-          <p>Help Number: +91 8653421800</p>
+          <p>
+            WhatsApp:{" "}
+            <a 
+              href="https://wa.me/918653421800" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.whatsappLink}
+            >
+              +91 8653421800
+            </a>
+          </p>
         </div>
       </div>
 

@@ -1,10 +1,19 @@
-.container{
-  overflow-x: hidden;
-  width: 100vw;
+.container {
+  width: 100%;
 }
-body{
-    overflow-x: hidden;
+
+.stickyNavbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  transition: box-shadow 0.3s ease;
 }
+
+.stickyNavbar.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .scrollTop {
   position: fixed;
   bottom: 20px;
@@ -21,12 +30,4 @@ body{
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 999;
-}
-
-.stickyNavbar {
-  position: sticky;
-  top: 0;
-  z-index: 998;
-  background-color: white;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
 }

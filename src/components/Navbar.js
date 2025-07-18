@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate()
 
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -15,7 +17,7 @@ const Navbar = () => {
 
   return (
     <header className={styles.navbar}>
-      <div className={styles.logo}>
+      <div className={styles.logo} onClick={()=>navigate("/")} >
         <img
           src="https://opusbirlafranchise.com/assets/img/birla-opus-logo-v1.svg"
           alt="Birla Opus"
