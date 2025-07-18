@@ -3,11 +3,12 @@
   margin: 2rem auto;
   padding: 2rem;
   background: #fff;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 .title {
@@ -62,11 +63,11 @@
     padding: 1.5rem;
     margin: 1rem;
   }
-  
+
   .title {
     font-size: 1.8rem;
   }
-  
+
   .content h2 {
     font-size: 1.3rem;
   }
