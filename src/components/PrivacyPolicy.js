@@ -85,9 +85,9 @@ function PrivacyPolicy() {
             <br />
             Birla Opus Customer Support
             <br />
-            privacy@birla-opus.com
+            Email: <a href="mailto:privacy@birla-opus.com">privacy@birla-opus.com</a>
             <br />
-            +91-8653421800
+            WhatsApp: <a href="https://wa.me/918653421800">+91-8653421800</a>
           </p>
         </div>
       </section>

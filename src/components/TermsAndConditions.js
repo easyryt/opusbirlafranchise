@@ -113,12 +113,10 @@ function TermsAndConditions() {
             For questions regarding these Terms:
             <br />
             Birla Opus Customer Support
+           <br />
+            Email: <a href="mailto:privacy@birla-opus.com">privacy@birla-opus.com</a>
             <br />
-            legal@birla-opus.com
-            <br />
-            +91-8653421800
-            <br />
-            Registered Office: Birla Opus Headquarters, Mumbai, India
+            WhatsApp: <a href="https://wa.me/918653421800">+91-8653421800</a>
           </p>
         </div>
       </section>
