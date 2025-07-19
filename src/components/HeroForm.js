@@ -5,11 +5,9 @@ import { app } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
 const HeroForm = () => {
-  const navigate = useNavigate()
-  // Initialize database
+  const navigate = useNavigate();
   const db = getDatabase(app);
 
-  // Form state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,35 +18,28 @@ const HeroForm = () => {
     state: "",
   });
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (!formData.name || !formData.email || !formData.phone) {
       alert("Please fill in required fields: Name, Email, and Phone");
       return;
     }
 
     try {
-      // Push data to Firebase
       const applicationsRef = ref(db, "applications");
-
-      // Add timestamp
       const formDataWithTimestamp = {
         ...formData,
-        timestamp: new Date().toISOString(), // or Date.now() for Unix time
+        timestamp: new Date().toISOString(),
       };
 
       await push(applicationsRef, formDataWithTimestamp);
 
-      // Reset form and show success
       setFormData({
         name: "",
         email: "",
@@ -59,7 +50,7 @@ const HeroForm = () => {
         state: "",
       });
 
-      navigate("/thankyou")
+      navigate("/thankyou");
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Failed to submit application. Please try again.");
@@ -68,6 +59,9 @@ const HeroForm = () => {
 
   return (
     <div className={styles.heroContainer}>
+      {/* Mobile-only background image */}
+      <div className={styles.mobileTopImage}></div>
+      
       <div className={styles.overlay}>
         <form className={styles.form} onSubmit={handleSubmit}>
           <h2 className={styles.heading}>Get in touch!</h2>

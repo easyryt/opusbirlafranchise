@@ -33,7 +33,11 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.stickyNavbar} ${isScrolled ? styles.scrolled : ''}`}>
+      <div
+        className={`${styles.stickyNavbar} ${
+          isScrolled ? styles.scrolled : ""
+        }`}
+      >
         <Navbar />
       </div>
 
