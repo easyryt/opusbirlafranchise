@@ -81,17 +81,113 @@
     justify-content: flex-start;
     background: none;
     padding: 0;
-    min-height: auto;
+    height: 100%;
   }
 
   .mobileTopImage {
     display: block;
     width: 100%;
-    height: 100px;
+    height: 240px;
     background-image: url("https://opusbirlafranchise.com/media/upload/calista-premium-home-paint-aditya-birla.webp");
     background-size: contain;
-    background-position: center;
     background-repeat: no-repeat;
+
+  }
+
+  .overlay {
+    max-width: 100%;
+    margin-right: 0;
+    padding: 25px 15px;
+    border-radius: 0;
+    background: white;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+    background: none;
+    padding: 0;
+    height: 100%;
+  }
+
+  .mobileTopImage {
+    display: block;
+    width: 100%;
+    height: 200px;
+    background-image: url("https://opusbirlafranchise.com/media/upload/calista-premium-home-paint-aditya-birla.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+  }
+
+  .overlay {
+    max-width: 100%;
+    margin-right: 0;
+    padding: 25px 15px;
+    border-radius: 0;
+    background: white;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .heroContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+    background: none;
+    padding: 0;
+    height: 100%;
+  }
+
+  .mobileTopImage {
+    display: block;
+    width: 100%;
+    height: 180px;
+    background-image: url("https://opusbirlafranchise.com/media/upload/calista-premium-home-paint-aditya-birla.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+  }
+
+  .overlay {
+    max-width: 100%;
+    margin-right: 0;
+    padding: 25px 15px;
+    border-radius: 0;
+    background: white;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .heroContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+    background: none;
+    padding: 0;
+    height: 100%;
+  }
+
+  .mobileTopImage {
+    display: block;
+    width: 100%;
+    height: 140px;
+    background-image: url("https://opusbirlafranchise.com/media/upload/calista-premium-home-paint-aditya-birla.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+
   }
 
   .overlay {
